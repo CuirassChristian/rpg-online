@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqc5tb18802hv"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1616u"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+
+[node name="Stupid Thing" type="CSGBox3D"]
+transform = Transform3D(9.28988, 0, 0, 0, 1.62527, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+size = Vector3(1, 5.28076, 5.82666)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1.52676, 0, 0, 0, 0.361203, -0.858079, 0, 2.11881, 0.609076, -0.012553, 1.01498, -0.128476)
+operation = 2
+size = Vector3(1, 5.28076, 5.82666)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1616u")

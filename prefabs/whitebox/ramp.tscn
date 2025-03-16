@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5b4dwc2newq6"]
+
+[sub_resource type="Animation" id="Animation_6d525"]
+resource_name = "Ramp_Animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667, 1.99),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.080704, 0.561657, 0), Vector3(0.080704, 0.350978, 0), Vector3(0.080704, 0.561657, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e0uce"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.080704, 0.561657, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e0uce"]
+_data = {
+&"RESET": SubResource("Animation_e0uce"),
+&"Ramp_Animation": SubResource("Animation_6d525")
+}
+
+[node name="Ramp" type="CSGBox3D"]
+transform = Transform3D(4.7722, 0, 0, 0, 2.17785, 0, 0, 0, 3.0344, 0, 1.214, 0)
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1.03009, 0.159559, 0, -0.800992, 0.985254, 0, 0, 0, 1.13778, 0.080704, 0.561657, 0)
+operation = 2
+size = Vector3(1, 1.24219, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e0uce")
+}
+autoplay = "Ramp_Animation"

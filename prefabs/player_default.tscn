@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://d032wse74uq1j"]
+
+[ext_resource type="Script" uid="uid://dvmpo2oo0msch" path="res://scenes/player.gd" id="1_lewbl"]
+[ext_resource type="Script" uid="uid://b8avioaexgjwg" path="res://scripts/Inventory.gd" id="2_x6rnl"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8neu0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8neu0"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lewbl"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Camera3D:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_lewbl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1.00053, 0, 0, 0, 1.00053, 0, 0, 0, 1.00053, 0, 1.88343, 0)
+fov = 80.0
+far = 1200.0
+
+[node name="Weapon Handler" type="Node3D" parent="."]
+script = ExtResource("2_x6rnl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_8neu0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_8neu0")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_lewbl")

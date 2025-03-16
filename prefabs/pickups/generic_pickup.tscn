@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbu6xcwcjob4g"]
+
+[ext_resource type="Script" uid="uid://rqd1dp741cqm" path="res://scripts/Pickup.gd" id="1_on52c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kayp2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_on52c"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.171039, 0.171039, 0.171039, 1)
+
+[node name="Generic Pickup" type="Node3D"]
+script = ExtResource("1_on52c")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_kayp2")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Area3D"]
+transform = Transform3D(1.64171, 0, 0, 0, -0.0379521, 0, 0, 0, 1.56306, 0, 0.20375, 0)
+material = SubResource("StandardMaterial3D_on52c")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
