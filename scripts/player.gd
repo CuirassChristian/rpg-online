@@ -1,4 +1,7 @@
+class_name Player
 extends CharacterBody3D
+
+var ref_local_player : Player
 
 const SPEED = 7
 const JUMP_VELOCITY = 6
@@ -11,22 +14,83 @@ var lookVec = Vector2(0,0)
 var mouse_movement = Vector2()
 
 @onready var camera = $Camera3D
+# current role
+var role : Role
+var roleType : Role.RoleType
+var ref_role_manager : RoleManager
+var ref_game_coordinator
+var current_role_text : Label
+
+#attributes
+@onready var character_attributes = Array([])
+var ref_attribute_manager 
+var attribute_text : Label
+
+var player_active : bool
 
 func _enter_tree():
 	var id = str(name).to_int()
 	set_multiplayer_authority(id)
 	
-	
 func _ready():
+	ref_local_player = self
+	if not is_multiplayer_authority():
+		return
+	
+	player_active = false
+	current_role_text = $"Parent Canvas/Gameplay Canvas/Panel/current_role_label"
+	attribute_text = $"Parent Canvas/CanvasLayer/PanelContainer/Panel/ui_attribute_text"
+	var world_node = get_tree().get_root().get_node("World")
+	var attributes = world_node.get_node("Manager Object/Attributes")
+	ref_attribute_manager = attributes
+	ref_game_coordinator = world_node.get_node("Manager Object/Game Coordinator")
+	ref_role_manager = world_node.get_node("Manager Object/Role Manager")
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	ref_role_manager.local_player = ref_local_player
+	
+	camera.current = true
+	
+func set_role(r:Role):
+	role = r
+	roleType = r.roleType
+	#current_role_text.text = "Role: " + r.name
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	_initialize_character()
+	
+func _initialize_character():
+	var count = 0
+
+	var attributes = ref_attribute_manager.get_attributes_for_role(role.roleType)
+
+	for attribute in attributes:
+		character_attributes.insert(count, Attribute.new(attribute.name, attribute.defaultValue))
+		count += 1
+		print("Adding " + attribute.name + " to character." + str(attribute.defaultValue))
+		
+	player_active = true
+	_update_ui_details()
+	
+
+		
+func _update_ui_details():
 	if not is_multiplayer_authority():
 		return
 		
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	camera.current = true
+	ref_attribute_manager.attributes_text_label.text = ""
+	print("Updating UI for player: ")
 
+	for attribute in character_attributes:
+		var str_value = str(attribute.currentValue)
+		var str_name = str(attribute.name)
+		ref_attribute_manager.attributes_text_label.text += str_name + "  " + str_value + "\n"
+		
 	
 func _process(delta: float) -> void:
 	if not is_multiplayer_authority():
+		return
+		
+	if player_active == false:
 		return
 		
 	_updateUI()
@@ -36,6 +100,11 @@ func _updateUI():
 	pass
 	
 func _input(event: InputEvent) -> void:
+	if not is_multiplayer_authority():
+		return
+		
+	if player_active == false:
+		return
 		
 	if event is InputEventMouseMotion:
 		mouse_movement.x = -event.relative.x
@@ -43,6 +112,9 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority():
+		return
+		
+	if player_active == false:
 		return
 		
 	# Reset look

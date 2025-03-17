@@ -1,10 +1,14 @@
 extends Node3D
 
-@onready var mainMenu = $"Main Canvas"
-@onready var addressEntry = $"Main Canvas/Title Menu/MarginContainer/VBoxContainer/Address Edit"
-@onready var interface = $"Player Canvas"
-@onready var random = $"Player Canvas/PanelContainer/VBoxContainer/Energy Bar"
-@onready var in_game_menu = $InGameMenu
+@onready var mainMenu = $"Parent Canvas/Main Canvas"
+@onready var addressEntry =$"Parent Canvas/Main Canvas/Title Menu/MarginContainer/VBoxContainer/Address Edit"
+@onready var interface = $"Parent Canvas/Player Canvas"
+@onready var random = $"Parent Canvas/Player Canvas/PanelContainer/VBoxContainer/Energy Bar"
+@onready var in_game_menu = $"Parent Canvas/InGameMenu"
+@onready var attribute_manager 
+
+var ref_role_manager
+
 const stupid_thing = preload("res://prefabs/whitebox/stupid_thing.tscn")
 const Player = preload("res://prefabs/player_default.tscn")
 const PORT = 13370
@@ -14,12 +18,16 @@ var enet_peer = ENetMultiplayerPeer.new()
 func _ready() -> void:
 	interface.hide()
 	in_game_menu.hide()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
+	ref_role_manager = $"Manager Object/Role Manager"
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	attribute_manager = $"Manager Object/Attributes"
 	
 func _on_host_button_pressed() -> void:
 	mainMenu.hide()
 	interface.show()
+	ref_role_manager.role_panel.show()
+	
 	enet_peer.create_server(PORT)
 	multiplayer.multiplayer_peer = enet_peer
 	multiplayer.peer_connected.connect(add_player)
@@ -57,6 +65,7 @@ func add_player (peer_id):
 	var player = Player.instantiate()
 	player.name = str(peer_id)
 	add_child(player)
+	
 	var random = randi_range(5, 20)
 	var pos = Vector3(0, random, 0)
 	print(random)

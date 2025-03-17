@@ -1,0 +1,7 @@
+res://scenes/debug.tscn
+res://scripts/Roles and Attributes/attribute_manager.gd
+res://scripts/player.gd
+res://scripts/Roles and Attributes/role_manager.gd
+res://scripts/Roles and Attributes/role.gd
+res://scripts/game_coordinator.gd
+res://scripts/Networking.gd
