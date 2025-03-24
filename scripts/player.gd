@@ -3,7 +3,6 @@ extends CharacterBody3D
 
 var ref_local_player : Player
 
-var SPEED = 7
 const JUMP_VELOCITY = 6
 
 # Mouse Settings
@@ -20,7 +19,7 @@ var roleType : Role.RoleType
 var ref_role_manager : RoleManager
 var ref_game_coordinator
 var current_role_text : Label
-
+var dmg_range_label : Label
 #attributes
 @onready var character_attributes = Array([])
 var ref_attribute_manager 
@@ -28,9 +27,14 @@ var attribute_text : Label
 
 var player_active : bool
 
+# live stats
+var minPhysDamage : int
+var maxPhysDamage : int
 var currentHealth : float
 var currentEnergy : float
 var currentStamina : float
+var phys_dmg_range : damage_range
+var SPEED = 7
 
 func _enter_tree():
 	var id = str(name).to_int()
@@ -44,6 +48,7 @@ func _ready():
 	player_active = false
 	current_role_text = $"Parent Canvas/Gameplay Canvas/Panel/current_role_label"
 	attribute_text = $"Parent Canvas/CanvasLayer/PanelContainer/Panel/ui_attribute_text"
+	dmg_range_label = $"Parent Canvas/Gameplay Canvas/Panel/dmg_label"
 	var world_node = get_tree().get_root().get_node("World")
 	var attributes = world_node.get_node("Manager Object/Attributes")
 	ref_attribute_manager = attributes
@@ -72,23 +77,36 @@ func _initialize_character():
 		count += 1
 		print("Adding " + attribute.name + " to character." + str(attribute.defaultValue))
 		
+	calculate_stats()
+	
+
+func calculate_stats ():
+	print ("Calculating stats")
+	
 	var ms_stat : Attribute
 	var agi_stat : Attribute
+	var str_stat : Attribute
+	var dex_stat : Attribute
+	var acu_stat  :Attribute
 	# stat setup
 	for Attribute in character_attributes:
 		if Attribute.name == "MoveSpeed":
 			ms_stat = Attribute
 		if Attribute.name == "Agility":
 			agi_stat = Attribute
-			
+		if Attribute.name == "Dexterity":
+			dex_stat = Attribute
+		if Attribute.name == "Strength":
+			str_stat = Attribute
+		if Attribute.name == "Accuracy":
+			acu_stat = Attribute
 	
+	phys_dmg_range = StatCalc.get_physical_damage_range(str_stat.currentValue, dex_stat.currentValue,agi_stat.currentValue, acu_stat.currentValue )
 	SPEED = StatCalc.get_move_speed(ms_stat.defaultValue, agi_stat.currentValue)
 	ms_stat.currentValue = SPEED
 	player_active = true
 	_update_ui_details()
-
 	
-		
 func _update_ui_details():
 	if not is_multiplayer_authority():
 		return
@@ -96,6 +114,9 @@ func _update_ui_details():
 	ref_attribute_manager.attributes_text_label.text = ""
 	print("Updating UI for player: ")
 
+	if ref_attribute_manager.phys_dmg_label != null:
+		ref_attribute_manager.phys_dmg_label.text = "Physical Damage: " + str(phys_dmg_range.min) + " - " + str(phys_dmg_range.max)
+		
 	for attribute in character_attributes:
 		var str_value = str(attribute.currentValue)
 		var str_name = str(attribute.name)
