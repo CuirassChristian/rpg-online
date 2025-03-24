@@ -62,7 +62,7 @@ vertical_alignment = 2
 layout_mode = 0
 offset_right = 116.0
 offset_bottom = 143.0
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 12
 text = "testing text!!"
 
 [node name="InGameMenu" type="CanvasLayer" parent="Parent Canvas"]

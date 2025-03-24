@@ -11,23 +11,23 @@ func _ready() -> void:
 	role_panel.hide()
 	
 	all_roles.insert(0, Role.new("Guardian", Role.RoleType.Guardian, "high physical tank"
-	, 16, 8, 4, 4, 2, 24, 5, 6))
+	, 16, 8, 4, 4, 2, 24, 5, 6, 1))
 	all_roles.insert(1, Role.new("Monk", Role.RoleType.Monk, "Evasion tank and support"
-	, 10, 10, 6, 8, 4, 14, 6, 8))
+	, 10, 10, 6, 8, 4, 14, 6, 8, 1))
 	all_roles.insert(2, Role.new("Ranger", Role.RoleType.Ranger, "Ranged physical damage"
-	, 4, 12, 5, 4, 16, 8, 6, 14))
+	, 4, 12, 5, 4, 16, 8, 6, 14, 1))
 	all_roles.insert(3, Role.new("Paladin", Role.RoleType.Paladin, "Magical tank"
-	, 14, 4, 10, 10, 2, 20, 5, 8))
+	, 14, 4, 10, 10, 2, 20, 5, 8, 1))
 	all_roles.insert(4, Role.new("Cleric", Role.RoleType.Cleric, "Magical support"
-	, 8, 3, 20, 24, 0, 10, 6, 5))
+	, 8, 3, 20, 24, 0, 10, 6, 5, 1))
 	all_roles.insert(5, Role.new("Wizard", Role.RoleType.Wizard, "high magical damage"
-	, 2, 4, 14, 12, 0, 6, 5, 4))
+	, 2, 4, 14, 12, 0, 6, 5, 4, 1))
 	all_roles.insert(6, Role.new("Berserker", Role.RoleType.Berserker, "physical damage tank"
-	, 28, 12, 0, 0, 2, 16, 6, 6))
+	, 28, 12, 0, 0, 2, 16, 6, 6, 1))
 	all_roles.insert(7, Role.new("Druid", Role.RoleType.Druid, "magical damage support"
-	, 8, 8, 8, 12, 12, 10, 6, 8))
+	, 8, 8, 8, 12, 12, 10, 6, 8, 1))
 	all_roles.insert(8, Role.new("Rogue", Role.RoleType.Rogue, "strong physical damage"
-	, 2, 25, 6, 6, 4, 10, 6, 11))
+	, 2, 25, 6, 6, 4, 10, 6, 11, 1))
 	
 	var count : int = 0
 	for Role in all_roles:

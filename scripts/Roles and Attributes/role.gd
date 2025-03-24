@@ -14,11 +14,12 @@ var base_dexterity : float
 var base_constitution : float
 var base_movespeed : float
 var base_accuracy : float
+var base_command : float
 	
 @export var roleType: RoleType = RoleType.None
 var description : String
 
-func _init (n : String, r:RoleType, sdesc:String, st:float, agi:float, intell:float, wis:float, dex:float, con:float, ms:float, acu:float):
+func _init (n : String, r:RoleType, sdesc:String, st:float, agi:float, intell:float, wis:float, dex:float, con:float, ms:float, acu:float, com:float):
 	name = n
 	roleType = r
 	description = sdesc
@@ -30,6 +31,7 @@ func _init (n : String, r:RoleType, sdesc:String, st:float, agi:float, intell:fl
 	base_constitution = con
 	base_movespeed = ms
 	base_accuracy = acu
+	base_command = com
 	print("Initializing role: " + name)
 	
 func _ready() -> void:

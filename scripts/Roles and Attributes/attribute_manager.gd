@@ -44,6 +44,7 @@ func get_attributes_for_role(r:Role.RoleType):
 				all_attributes_for_role.insert(5, Attribute.new("Constitution", Role.base_constitution))
 				all_attributes_for_role.insert(6, Attribute.new("MoveSpeed", Role.base_movespeed))
 				all_attributes_for_role.insert(7, Attribute.new("Accuracy", Role.base_accuracy))
+				all_attributes_for_role.insert(8, Attribute.new("Command", Role.base_command))
 	return all_attributes_for_role
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
