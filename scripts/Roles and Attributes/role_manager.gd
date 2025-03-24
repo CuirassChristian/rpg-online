@@ -33,7 +33,7 @@ func _ready() -> void:
 	for Role in all_roles:
 		var button = Button.new()
 		button.text = Role.name
-		button.add_theme_font_size_override("font_size", 7)
+		button.add_theme_font_size_override("font_size", 10)
 		button.pressed.connect(role_select_button_click.bind(count), 0)
 		role_button_container.add_child(button)
 		count += 1

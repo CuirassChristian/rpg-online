@@ -33,14 +33,14 @@ script = ExtResource("1_lgrwq")
 [node name="PanelContainer" type="PanelContainer" parent="Parent Canvas/CanvasLayer"]
 layout_direction = 2
 anchors_preset = -1
-anchor_left = 0.902
-anchor_top = 1.0
-anchor_right = 0.902
-anchor_bottom = 1.0
-offset_left = -117.104
-offset_top = -145.0
-offset_right = -0.104126
-offset_bottom = -1.0
+anchor_left = 0.995
+anchor_top = 1.005
+anchor_right = 0.995
+anchor_bottom = 1.005
+offset_left = -159.24
+offset_top = -187.24
+offset_right = -0.240112
+offset_bottom = -0.23999
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -62,7 +62,7 @@ vertical_alignment = 2
 layout_mode = 0
 offset_right = 116.0
 offset_bottom = 143.0
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 14
 text = "testing text!!"
 
 [node name="InGameMenu" type="CanvasLayer" parent="Parent Canvas"]

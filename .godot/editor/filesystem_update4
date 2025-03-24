@@ -1,7 +1,12 @@
 res://scenes/debug.tscn
-res://scripts/Roles and Attributes/attribute_manager.gd
-res://scripts/player.gd
-res://scripts/Roles and Attributes/role_manager.gd
-res://scripts/Roles and Attributes/role.gd
-res://scripts/game_coordinator.gd
-res://scripts/Networking.gd
+res://scripts/Combat/combat_manager.gd
+res://scripts/Combat/CombatManager.gd
+res://scripts/Units and Structuers/Unit.gd
+res://scripts/Units and Structuers/UnitState.gd
+res://scripts/Units and Structuers/State_Idle.gd
+res://scripts/Units and Structures/UnitState.gd
+res://scripts/Units and Structures/State_Idle.gd
+res://scripts/Units and Structures/Unit.gd
+res://scripts/Units and Structures/State_MoveOrder.gd
+res://scripts/Units and Structures/State_MovingToLocation.gd
+res://scripts/Units and Structures/State_MovingToTarget.gd
