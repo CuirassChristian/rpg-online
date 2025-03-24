@@ -1,12 +1,3 @@
 res://scenes/debug.tscn
-res://scripts/Combat/combat_manager.gd
-res://scripts/Combat/CombatManager.gd
-res://scripts/Units and Structuers/Unit.gd
-res://scripts/Units and Structuers/UnitState.gd
-res://scripts/Units and Structuers/State_Idle.gd
-res://scripts/Units and Structures/UnitState.gd
-res://scripts/Units and Structures/State_Idle.gd
-res://scripts/Units and Structures/Unit.gd
-res://scripts/Units and Structures/State_MoveOrder.gd
-res://scripts/Units and Structures/State_MovingToLocation.gd
-res://scripts/Units and Structures/State_MovingToTarget.gd
+res://scripts/Roles and Attributes/StatCalc.gd
+res://scripts/player.gd

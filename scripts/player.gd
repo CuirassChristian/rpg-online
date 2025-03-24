@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var ref_local_player : Player
 
-const SPEED = 7
+var SPEED = 7
 const JUMP_VELOCITY = 6
 
 # Mouse Settings
@@ -27,6 +27,10 @@ var ref_attribute_manager
 var attribute_text : Label
 
 var player_active : bool
+
+var currentHealth : float
+var currentEnergy : float
+var currentStamina : float
 
 func _enter_tree():
 	var id = str(name).to_int()
@@ -68,10 +72,22 @@ func _initialize_character():
 		count += 1
 		print("Adding " + attribute.name + " to character." + str(attribute.defaultValue))
 		
+	var ms_stat : Attribute
+	var agi_stat : Attribute
+	# stat setup
+	for Attribute in character_attributes:
+		if Attribute.name == "MoveSpeed":
+			ms_stat = Attribute
+		if Attribute.name == "Agility":
+			agi_stat = Attribute
+			
+	
+	SPEED = StatCalc.get_move_speed(ms_stat.defaultValue, agi_stat.currentValue)
+	ms_stat.currentValue = SPEED
 	player_active = true
 	_update_ui_details()
-	
 
+	
 		
 func _update_ui_details():
 	if not is_multiplayer_authority():

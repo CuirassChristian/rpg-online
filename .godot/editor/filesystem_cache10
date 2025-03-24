@@ -1,36 +1,37 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1742701352
-export_presets.cfg::TextFile/TextFile::-1::1741224009::0::1::::<><><>0<>0<><>::
-icon.svg::CompressedTexture2D/CompressedTexture2D::8033537259822035342::1741224009::1742096466::1::::<><><>0<>0<>05520f84beda0679bb863b083dbe7f53<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-README.md::TextFile/TextFile::-1::1741224009::0::1::::<><><>0<>0<><>::
-::res://prefabs/::1742182550
-player_default.tscn::PackedScene/PackedScene::8973465318507401773::1742182550::0::1::::<><><>0<>0<><>::uid://dvmpo2oo0msch::::res://scripts/player.gd<>uid://b8avioaexgjwg::::res://scripts/Inventory.gd
-::res://prefabs/pickups/::1742092925
-generic_pickup.tscn::PackedScene/PackedScene::4886241205276850724::1742092925::0::1::::<><><>0<>0<><>::uid://rqd1dp741cqm::::res://scripts/Pickup.gd
-::res://prefabs/whitebox/::1741224009
-ramp.tscn::PackedScene/PackedScene::4495917680607698535::1741224009::0::1::::<><><>0<>0<><>::
-stupid_thing.tscn::PackedScene/PackedScene::8288267838895874919::1741224009::0::1::::<><><>0<>0<><>::
-::res://scenes/::1742779002
-debug.tscn::PackedScene::2567702911323276230::1742779729::0::1::::<><><>0<>0<><>::uid://deyenp54d61cj::::res://scripts/Networking.gd<>uid://cgpc8620psbpe::::res://scripts/Interface.gd<>uid://b5b4dwc2newq6::::res://prefabs/whitebox/ramp.tscn<>uid://dqc5tb18802hv::::res://prefabs/whitebox/stupid_thing.tscn<>uid://cbu6xcwcjob4g::::res://prefabs/pickups/generic_pickup.tscn<>uid://k870iswae3d0::::res://scripts/Roles and Attributes/attribute_manager.gd<>uid://l1q25owb4qu6::::res://scripts/Roles and Attributes/role_manager.gd<>uid://ds6ol563y4517::::res://scripts/game_coordinator.gd
-::res://scripts/::1742701352
-game_coordinator.gd::GDScript/GDScript::8487528253466304052::1742182550::0::1::::<>Node<><>0<>0<><>::
-Interface.gd::GDScript/GDScript::5225122131799901030::1742182550::0::1::::<>CanvasLayer<><>0<>0<><>::
-Inventory.gd::GDScript/GDScript::4703942602487131062::1741496630::0::1::::<>Node<><>0<>0<><>::
-Networking.gd::GDScript/GDScript::7489829410537966333::1742182550::0::1::::<>Node3D<><>0<>0<><>::
-Obtainable.gd::GDScript/GDScript::3397336179118155417::1741495344::0::1::::<>Node<><>0<>0<><>::
-Pickup.gd::GDScript/GDScript::1226469149767162388::1741665822::0::1::::<>Node<><>0<>0<><>::
-player.gd::GDScript/GDScript::8658937496960578627::1742182550::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
-UserInterface.gd::GDScript/GDScript::16659208797777787::1742182550::0::1::::<>Node3D<><>0<>0<><>::
-Weapon.gd::GDScript/GDScript::4599634867885742452::1741495941::0::1::::Weapon<>RefCounted<><>0<>0<><>::
-::res://scripts/Combat/::1742699490
-CombatManager.gd::GDScript::630682502615226179::1742699490::0::1::::CombatManager<>Node<><>0<>0<><>::
-::res://scripts/Roles and Attributes/::1742183173
-attribute.gd::GDScript/GDScript::5287068027793937975::1742182550::0::1::::Attribute<>RefCounted<><>0<>0<><>::
-attribute_manager.gd::GDScript/GDScript::772000939873495375::1742182550::0::1::::<>Node<><>0<>0<><>::
-role.gd::GDScript/GDScript::3361651436208014188::1742182550::0::1::::Role<>RefCounted<><>0<>0<><>::
-role_manager.gd::GDScript/GDScript::826772388273446847::1742183173::0::1::::RoleManager<>Node<><>0<>0<><>::
-::res://scripts/Units and Structures/::1742701436
-State_MoveOrder.gd::GDScript::1159027521024263085::1742779729::0::1::::State_MovingToLocation<>UnitState<><>0<>0<><>::
-State_Idle.gd::GDScript::1645367129564495831::1742779695::0::1::::State_Idle<>UnitState<><>0<>0<><>::
-Unit.gd::GDScript::4575709780217768828::1742701436::0::1::::Unit<>Node<><>0<>0<><>::
-UnitState.gd::GDScript::1800230216373701735::1742701406::0::1::::UnitState<>Node<><>0<>0<><>::
+::res://::1742823523
+icon.svg::CompressedTexture2D/CompressedTexture2D::8033537259822035342::1742820956::1742820995::1::::<><><>0<>0<>05520f84beda0679bb863b083dbe7f53<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile/TextFile::-1::1742820956::0::1::::<><><>0<>0<><>::
+::res://prefabs/::1742820956
+player_default.tscn::PackedScene/PackedScene::8973465318507401773::1742820956::0::1::::<><><>0<>0<><>::uid://dvmpo2oo0msch::::res://scripts/player.gd<>uid://b8avioaexgjwg::::res://scripts/Inventory.gd
+::res://prefabs/pickups/::1742820956
+generic_pickup.tscn::PackedScene/PackedScene::4886241205276850724::1742820956::0::1::::<><><>0<>0<><>::uid://rqd1dp741cqm::::res://scripts/Pickup.gd
+::res://prefabs/whitebox/::1742820956
+ramp.tscn::PackedScene/PackedScene::4495917680607698535::1742820956::0::1::::<><><>0<>0<><>::
+stupid_thing.tscn::PackedScene/PackedScene::8288267838895874919::1742820956::0::1::::<><><>0<>0<><>::
+::res://scenes/::1742823433
+debug.tscn::PackedScene::2567702911323276230::1742823433::0::1::::<><><>0<>0<><>::uid://deyenp54d61cj::::res://scripts/Networking.gd<>uid://cgpc8620psbpe::::res://scripts/Interface.gd<>uid://b5b4dwc2newq6::::res://prefabs/whitebox/ramp.tscn<>uid://dqc5tb18802hv::::res://prefabs/whitebox/stupid_thing.tscn<>uid://cbu6xcwcjob4g::::res://prefabs/pickups/generic_pickup.tscn<>uid://k870iswae3d0::::res://scripts/Roles and Attributes/attribute_manager.gd<>uid://l1q25owb4qu6::::res://scripts/Roles and Attributes/role_manager.gd<>uid://ds6ol563y4517::::res://scripts/game_coordinator.gd
+::res://scripts/::1742823063
+game_coordinator.gd::GDScript/GDScript::8487528253466304052::1742820956::0::1::::<>Node<><>0<>0<><>::
+Interface.gd::GDScript/GDScript::5225122131799901030::1742820956::0::1::::<>CanvasLayer<><>0<>0<><>::
+Inventory.gd::GDScript/GDScript::4703942602487131062::1742820956::0::1::::<>Node<><>0<>0<><>::
+Networking.gd::GDScript/GDScript::7489829410537966333::1742820956::0::1::::<>Node3D<><>0<>0<><>::
+Obtainable.gd::GDScript/GDScript::3397336179118155417::1742820956::0::1::::<>Node<><>0<>0<><>::
+Pickup.gd::GDScript/GDScript::1226469149767162388::1742820956::0::1::::<>Node<><>0<>0<><>::
+player.gd::GDScript::8658937496960578627::1742823063::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
+UserInterface.gd::GDScript/GDScript::16659208797777787::1742820956::0::1::::<>Node3D<><>0<>0<><>::
+Weapon.gd::GDScript/GDScript::4599634867885742452::1742820956::0::1::::Weapon<>RefCounted<><>0<>0<><>::
+::res://scripts/Combat/::1742821344
+CombatManager.gd::GDScript/GDScript::630682502615226179::1742821344::0::1::::CombatManager<>Node<><>0<>0<><>::
+::res://scripts/Roles and Attributes/::1742823432
+attribute.gd::GDScript/GDScript::5287068027793937975::1742821777::0::1::::Attribute<>RefCounted<><>0<>0<><>::
+attribute_manager.gd::GDScript/GDScript::772000939873495375::1742822189::0::1::::<>Node<><>0<>0<><>::
+role.gd::GDScript/GDScript::3361651436208014188::1742821852::0::1::::Role<>RefCounted<><>0<>0<><>::
+role_manager.gd::GDScript/GDScript::826772388273446847::1742822270::0::1::::RoleManager<>Node<><>0<>0<><>::
+StatCalc.gd::GDScript::7113959951719706447::1742823424::0::1::::StatCalc<>Node<><>0<>0<><>::
+::res://scripts/Units and Structures/::1742820956
+State_Idle.gd::GDScript/GDScript::1645367129564495831::1742820956::0::1::::State_Idle<>UnitState<><>0<>0<><>::
+State_MovingToLocation.gd::GDScript/GDScript::1159027521024263085::1742820956::0::1::::State_MovingToLocation<>UnitState<><>0<>0<><>::
+State_MovingToTarget.gd::GDScript/GDScript::155351735066986527::1742820956::0::1::::State_MovingToTarget<>UnitState<><>0<>0<><>::
+Unit.gd::GDScript/GDScript::4575709780217768828::1742820956::0::1::::Unit<>Node<><>0<>0<><>::
+UnitState.gd::GDScript/GDScript::1800230216373701735::1742820956::0::1::::UnitState<>Node<><>0<>0<><>::

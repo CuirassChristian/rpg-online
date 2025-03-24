@@ -1,0 +1,257 @@
+[gd_scene load_steps=14 format=3 uid="uid://bct2xryv18ui5"]
+
+[ext_resource type="Script" uid="uid://deyenp54d61cj" path="res://scripts/Networking.gd" id="1_lgrwq"]
+[ext_resource type="Script" uid="uid://cgpc8620psbpe" path="res://scripts/Interface.gd" id="2_4pmxj"]
+[ext_resource type="PackedScene" uid="uid://b5b4dwc2newq6" path="res://prefabs/whitebox/ramp.tscn" id="3_3vd64"]
+[ext_resource type="PackedScene" uid="uid://dqc5tb18802hv" path="res://prefabs/whitebox/stupid_thing.tscn" id="4_hqhvd"]
+[ext_resource type="PackedScene" uid="uid://cbu6xcwcjob4g" path="res://prefabs/pickups/generic_pickup.tscn" id="5_kayp2"]
+[ext_resource type="Script" uid="uid://k870iswae3d0" path="res://scripts/Roles and Attributes/attribute_manager.gd" id="6_j2wbo"]
+[ext_resource type="Script" uid="uid://l1q25owb4qu6" path="res://scripts/Roles and Attributes/role_manager.gd" id="7_t48sv"]
+[ext_resource type="Script" uid="uid://ds6ol563y4517" path="res://scripts/game_coordinator.gd" id="8_svo7y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgrwq"]
+bg_color = Color(0.454645, 0.69208, 0.262895, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pmxj"]
+bg_color = Color(0.447887, 0.599846, 0.87072, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vd64"]
+bg_color = Color(0.646954, 0.598363, 0.455807, 1)
+
+[sub_resource type="Theme" id="Theme_svo7y"]
+/font_sizes/size = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_8neu0"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_lgrwq")
+
+[node name="Parent Canvas" type="CanvasLayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Parent Canvas"]
+
+[node name="PanelContainer" type="PanelContainer" parent="Parent Canvas/CanvasLayer"]
+layout_direction = 2
+anchors_preset = -1
+anchor_left = 0.995
+anchor_top = 1.005
+anchor_right = 0.995
+anchor_bottom = 1.005
+offset_left = -159.24
+offset_top = -187.24
+offset_right = -0.240112
+offset_bottom = -0.23999
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Parent Canvas/CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Parent Canvas/CanvasLayer/PanelContainer/Panel"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = -24.0
+offset_right = 115.0
+offset_bottom = -2.0
+text = "Attributes
+"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="ui_attribute_text" type="Label" parent="Parent Canvas/CanvasLayer/PanelContainer/Panel"]
+layout_mode = 0
+offset_right = 116.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 14
+text = "testing text!!"
+
+[node name="InGameMenu" type="CanvasLayer" parent="Parent Canvas"]
+
+[node name="Panel" type="Panel" parent="Parent Canvas/InGameMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.0
+offset_top = -2.0
+offset_right = 107.0
+offset_bottom = 136.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Parent Canvas/InGameMenu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_right = 48.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Quit Button" type="Button" parent="Parent Canvas/InGameMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "QUIT GAME"
+
+[node name="Main Canvas" type="CanvasLayer" parent="Parent Canvas"]
+
+[node name="Title Menu" type="PanelContainer" parent="Parent Canvas/Main Canvas"]
+offset_left = 14.0
+offset_top = 286.0
+offset_right = 289.0
+offset_bottom = 625.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Parent Canvas/Main Canvas/Title Menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Parent Canvas/Main Canvas/Title Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Single Player" type="Button" parent="Parent Canvas/Main Canvas/Title Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Single Player * (Not Working)"
+
+[node name="Host Button" type="Button" parent="Parent Canvas/Main Canvas/Title Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="Join Button" type="Button" parent="Parent Canvas/Main Canvas/Title Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join
+"
+
+[node name="Address Edit" type="LineEdit" parent="Parent Canvas/Main Canvas/Title Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter IP Address.."
+alignment = 1
+
+[node name="Player Canvas" type="CanvasLayer" parent="Parent Canvas"]
+script = ExtResource("2_4pmxj")
+
+[node name="PanelContainer" type="PanelContainer" parent="Parent Canvas/Player Canvas"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -113.0
+offset_right = 202.0
+offset_bottom = -16.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Parent Canvas/Player Canvas/PanelContainer"]
+layout_mode = 2
+
+[node name="Health Bar" type="ProgressBar" parent="Parent Canvas/Player Canvas/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_lgrwq")
+value = 100.0
+
+[node name="Energy Bar" type="ProgressBar" parent="Parent Canvas/Player Canvas/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_4pmxj")
+value = 80.0
+
+[node name="Stamina Bar" type="ProgressBar" parent="Parent Canvas/Player Canvas/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_3vd64")
+
+[node name="Gameplay Canvas" type="CanvasLayer" parent="Parent Canvas"]
+
+[node name="Panel" type="Panel" parent="Parent Canvas/Gameplay Canvas"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 293.0
+offset_top = -73.0
+offset_right = -230.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="current_role_label" type="Label" parent="Parent Canvas/Gameplay Canvas/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 9
+text = "Current Role"
+
+[node name="Role Canvas" type="CanvasLayer" parent="Parent Canvas"]
+
+[node name="Role Selection Panel" type="Panel" parent="Parent Canvas/Role Canvas"]
+offset_right = 43.0
+offset_bottom = 207.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Parent Canvas/Role Canvas/Role Selection Panel"]
+layout_mode = 0
+offset_right = 42.0
+offset_bottom = 203.0
+
+[node name="Button" type="Button" parent="Parent Canvas/Role Canvas/Role Selection Panel/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_svo7y")
+
+[node name="Lock In Button" type="Button" parent="Parent Canvas/Role Canvas/Role Selection Panel"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 5.0
+offset_right = 120.0
+offset_bottom = 36.0
+text = "Lock In"
+
+[node name="Level" type="Node" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Level"]
+transform = Transform3D(149.345, 0.000679641, -0.395069, -0.603357, 0.168111, 0.159878, 0.397396, -0.000178923, 148.714, -0.0338935, 0.0394711, 0.0224623)
+use_collision = true
+mesh = SubResource("BoxMesh_8neu0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 3.67236, 0, 0, 0, 3.84127, -4.79091, 1.84177, 0)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Level/CSGBox3D"]
+transform = Transform3D(1.41798, 0, 0, 0, 0.488319, 0, 0, 0, 0.488319, 0, 0, 0)
+operation = 2
+
+[node name="Ramp" parent="Level" instance=ExtResource("3_3vd64")]
+transform = Transform3D(4.77934, 0, 0, 0, 2.18111, 0, 0, 0, 3.03894, -2.90452, 1.10446, 3.46134)
+
+[node name="Stupid Thing" parent="Level" instance=ExtResource("4_hqhvd")]
+transform = Transform3D(9.28988, 0, 0, 0, 1.62527, 0, 0, 0, 1, 0.0172992, 4.26446, -11.9799)
+
+[node name="Generic Pickup" parent="Level" instance=ExtResource("5_kayp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00975448, -0.072764, 0.0136163)
+
+[node name="Lighting" type="Node" parent="."]
+
+[node name="LightmapGI" type="LightmapGI" parent="Lighting"]
+
+[node name="Main Direct Light" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.436174, 0.899862, 0, -0.899862, 0.436174, 0, 25.1166, 0)
+shadow_enabled = true
+
+[node name="Sub Direct Light" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -0.69452, 0.719473, 0, -0.719473, -0.69452, 0, 25.1166, 0)
+light_energy = 0.5
+light_indirect_energy = 0.5
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://d032wse74uq1j", "uid://d032wse74uq1j")
+spawn_path = NodePath("..")
+
+[node name="Manager Object" type="Node" parent="."]
+
+[node name="Attributes" type="Node" parent="Manager Object"]
+script = ExtResource("6_j2wbo")
+
+[node name="Role Manager" type="Node" parent="Manager Object"]
+script = ExtResource("7_t48sv")
+
+[node name="Game Coordinator" type="Node" parent="Manager Object"]
+script = ExtResource("8_svo7y")
+
+[connection signal="pressed" from="Parent Canvas/InGameMenu/Panel/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Parent Canvas/Main Canvas/Title Menu/MarginContainer/VBoxContainer/Host Button" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="Parent Canvas/Main Canvas/Title Menu/MarginContainer/VBoxContainer/Join Button" to="." method="_on_join_button_pressed"]
+[connection signal="value_changed" from="Parent Canvas/Player Canvas/PanelContainer/VBoxContainer/Health Bar" to="." method="_on_health_bar_value_changed"]
+[connection signal="pressed" from="Parent Canvas/Role Canvas/Role Selection Panel/Lock In Button" to="Manager Object/Role Manager" method="_on_lock_in_button_pressed"]
+[connection signal="visibility_changed" from="Level/CSGBox3D" to="." method="_on_csg_box_3d_visibility_changed"]
+[connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]

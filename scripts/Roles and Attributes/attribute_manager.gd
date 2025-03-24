@@ -15,6 +15,7 @@ func _ready() -> void:
 	all_attributes.insert(3, Attribute.new("Wisdom", 1))
 	all_attributes.insert(4, Attribute.new("Dexterity", 1))
 	all_attributes.insert(5, Attribute.new("Constitution", 1))
+	all_attributes.insert(6, Attribute.new("Move Speed", 1))
 	
 	print("Generating attributes")
 	for Attribute in all_attributes:
@@ -39,7 +40,7 @@ func get_attributes_for_role(r:Role.RoleType):
 				all_attributes_for_role.insert(3, Attribute.new("Wisdom", Role.base_wisdom))
 				all_attributes_for_role.insert(4, Attribute.new("Dexterity", Role.base_dexterity))
 				all_attributes_for_role.insert(5, Attribute.new("Constitution", Role.base_constitution))
-				
+				all_attributes_for_role.insert(6, Attribute.new("MoveSpeed", Role.base_movespeed))
 	return all_attributes_for_role
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
